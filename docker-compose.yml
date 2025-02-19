@@ -24,7 +24,12 @@ services:
     environment:
       - DEBUG=True
       - SECRET_KEY=change-me-in-production
-      - DATABASE_URL=postgresql://postgres:postgres@db:5432/twitter_clone
+      - DB_NAME=twitter_clone
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_HOST=db
+      - DB_PORT=5432
+#     - DATABASE_URL=postgresql://postgres:postgres@db:5432/twitter_clone
     volumes:
       - ./:/app
       - static_volume:/app/staticfiles
