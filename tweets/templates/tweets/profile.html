@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de {{ profile_user.email }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Perfil de {{ profile_user.email }}</h1>
+        <div class="navbar">
+            <a href="{% url 'home' %}">Voltar para o Feed</a>
+        </div>
+        <div class="profile-card">
+            <h2>Dados do Usuário</h2>
+            <div class="profile-info">
+                <div class="profile-stat">
+                    <strong>Email</strong>
+                    <p>{{ profile_user.email }}</p>
+                </div>
+                <div class="profile-stat">
+                    <strong>Seguidores</strong>
+                    <p>{{ followers_count }}</p>
+                </div>
+                <div class="profile-stat">
+                    <strong>Seguindo</strong>
+                    <p>{{ following_count }}</p>
+                </div>
+            </div>
+            {% if profile_user != request.user %}
+                <div class="profile-action">
+                    {% if is_following %}
+                        <a href="{% url 'unfollow_user' profile_user.id %}">Deixar de Seguir</a>
+                    {% else %}
+                        <a href="{% url 'follow_user' profile_user.id %}">Seguir</a>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+        <h2>Tweets de {{ profile_user.email }}</h2> 
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tweet</th>
+                        <th>Quando foi criado</th>
+                        <th>Like / Unlike</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tweet in tweets %}
+                    <tr>
+                        <td>{{ tweet.content }}</td>
+                        <td>{{ tweet.created_at|timesince }} atrás</td>
+                        <td>
+                            <a href="{% url 'like_tweet' tweet.id %}">
+                                {% if tweet.id in liked_tweet_ids %}
+                                    Unlike
+                                {% else %}
+                                    Like
+                                {% endif %}
+                            </a>
+                            ({{ tweet.likes.count }})
+                        </td>
+                        <td>
+                            {% if tweet.user == request.user %}
+                                <a href="{% url 'delete_tweet' tweet.id %}">Deletar</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

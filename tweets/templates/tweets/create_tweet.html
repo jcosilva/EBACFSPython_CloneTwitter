@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Tweet</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Criar Novo Tweet</h1>
+        <div class="card">
+            <div class="form-header">
+                <h2>Inclusão do Tweet</h2>
+            </div>            
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_content">Conteúdo:</label>
+                    <textarea name="content" id="id_content" class="form-control" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn">Publicar</button>
+            </form>
+            <div class="form-footer">
+                <p><a href="{% url 'home' %}">Voltar para o feed</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

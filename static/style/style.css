@@ -1,0 +1,344 @@
+/* Variáveis de cores */
+:root {
+    --primary-color: #2e8b57; /* Verde pastel */
+    --primary-dark: #1e6b3b;
+    --secondary-color: #1e90ff; /* Azul pastel */
+    --background-color: #f0f8ff; /* Azul claro para fundo */
+    --light-row: #f9f9f9;
+    --dark-row: #e6f2ff;
+    --white: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --text-dark: #333333;
+}
+
+/* Estilos gerais */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    color: var(--text-dark);
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-top: 30px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--primary-color);
+}
+
+/* Centralizar formulário e perfil */
+.card {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow);
+    margin: 20px auto;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+.form-header {
+    margin-bottom: 25px;
+}
+
+/* Barra de navegação */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow);
+    margin: 20px auto;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.navbar a, .navbar button {
+    margin: 0 10px;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.navbar form {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+}
+
+.search-bar {
+    display: flex;
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.search-bar input {
+    width: 60%;
+    padding: 10px;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #ccc;
+}
+
+.search-bar button {
+    padding: 10px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+/* Estilos de formulário */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(46, 139, 87, 0.2);
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.btn-link {
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+}
+
+.form-footer {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/* Estilo para tabelas */
+.table-container {
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px var(--shadow);
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+thead tr {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: var(--white);
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--dark-row);
+}
+
+tbody tr:hover {
+    background-color: rgba(46, 139, 87, 0.1);
+}
+
+/* Perfil */
+.profile-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.profile-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.profile-stat {
+    padding: 10px;
+    border-radius: 6px;
+    background-color: var(--light-row);
+}
+
+.profile-action {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.profile-action a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.profile-action a:hover {
+    background-color: var(--primary-dark);
+    text-decoration: none;
+}
+
+/* Estilo para tweets */
+.tweet {
+    background-color: var(--light-row);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--shadow);
+    position: relative;
+}
+
+.tweet-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.tweet-content {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.tweet-footer {
+    display: flex;
+    justify-content: space-between;
+    color: #777;
+    font-size: 14px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .card, .profile-card {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    table {
+        font-size: 14px;
+    }
+    
+    th, td {
+        padding: 10px;
+    }
+    
+    .profile-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .card, .profile-card {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .btn {
+        padding: 10px;
+    }
+    
+    th, td {
+        padding: 8px;
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Pesquisa</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Resultados da Pesquisa</h1>
+        <div class="navbar">
+            <a href="{% url 'home' %}">Voltar para o Feed</a>
+        </div>
+        {% if query %}
+            <h2>Resultados para "{{ query }}"</h2>
+        {% endif %}
+        <div class="table-container">
+            {% if users %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Usuário</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                        <tr>
+                            <td><a href="{% url 'profile' user.id %}">{{ user.email }}</a></td>
+                            <td>
+                                {% if user != request.user %}
+                                    {% if user.id in following_ids %}
+                                        <a href="{% url 'unfollow_user' user.id %}">Deixar de Seguir</a>
+                                    {% else %}
+                                        <a href="{% url 'follow_user' user.id %}">Seguir</a>
+                                    {% endif %}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="card">Nenhum usuário encontrado.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

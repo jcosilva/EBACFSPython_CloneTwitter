@@ -1,0 +1,9 @@
+asgiref==3.8.1
+Django==5.1.6
+djangorestframework==3.15.2
+psycopg2==2.9.10
+psycopg2-binary==2.9.10
+python-decouple==3.8
+sqlparse==0.5.3
+-e git+https://github.com/jcosilva/EBACFSPython_CloneTwitter.git@9023128ce0e0510249e2e776658632fbf6a8e64c#egg=twitter_clone
+tzdata==2025.1

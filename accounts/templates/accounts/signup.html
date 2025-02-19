@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Usuário</h1>        
+        <div class="card">
+            <div class="form-header">
+                <h2>Inclusão de dados para criação de usuário</h2>
+            </div>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_email">Email:</label>
+                    <input type="email" name="email" id="id_email" class="form-control" required>
+                </div>                
+                <div class="form-group">
+                    <label for="id_password1">Senha:</label>
+                    <input type="password" name="password1" id="id_password1" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="id_password2">Confirmação de Senha:</label>
+                    <input type="password" name="password2" id="id_password2" class="form-control" required>
+                </div>
+                <button type="submit" class="btn">Cadastrar</button>
+            </form>
+            <div class="form-footer">
+                <p>Já tem uma conta? <a href="{% url 'login' %}">Faça login</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
