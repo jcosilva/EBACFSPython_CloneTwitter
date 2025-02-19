@@ -1,17 +1,16 @@
-[project]
+[tool.poetry]
 name = "twitter-clone"
 version = "0.1.0"
 description = "A Twitter clone using Django"
-authors = [
-    {name = "Julio Silva",email = "silvajulio@hotmail.com"}
-]
+authors = ["Julio Silva <silvajulio@hotmail.com>"]
 readme = "README.md"
-requires-python = "^3.10"
-dependencies = [
-    "django>=5.1.6,<6.0.0",
-    "psycopg2-binary>=2.9.10,<3.0.0",
-    "python-decouple>=3.8,<4.0"
-]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = ">=5.1.6,<6.0.0"
+psycopg2-binary = ">=2.9.10,<3.0.0"
+python-decouple = ">=3.8,<4.0"
+gitpython = "^3.1.44"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
